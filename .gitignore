@@ -1,0 +1,5 @@
+/bin/
+*.pdf
+test.ipynb
+test.py
+graph_test.py
