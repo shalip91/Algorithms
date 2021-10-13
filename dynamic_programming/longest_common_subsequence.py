@@ -33,7 +33,7 @@ def reconstruct_lcs(cache, s1):
 
 def LCS(s1, s2):
     """DP of the longest common subsequence """
-    cache = [[(None, None) for _ in range(len(s1)+1)] for _ in range(len(s2)+1)]
+    cache = [[None for _ in range(len(s1)+1)] for _ in range(len(s2)+1)]
     for i in range(len(s2)):
         for j in range(len(s1)):
             if s1[j] == s2[i]:
