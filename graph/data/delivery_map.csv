@@ -1,0 +1,11 @@
+,capella,acturus,pollux,castor,sol,sirius,antares,vega,rigel,polaris
+capella,0,1,1,1,1,0,1,0,1,0
+acturus,1,0,1,1,1,1,1,1,1,0
+pollux,1,1,0,1,1,1,0,1,1,0
+castor,1,1,1,0,1,0,0,1,0,0
+sol,1,1,1,1,0,1,0,1,0,0
+sirius,0,1,1,0,1,0,0,1,1,0
+antares,1,1,0,0,0,0,0,0,0,0
+vega,0,1,1,1,1,1,0,0,0,0
+rigel,1,1,1,0,0,1,0,0,0,1
+polaris,0,0,0,0,0,0,0,0,1,0
