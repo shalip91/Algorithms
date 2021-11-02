@@ -136,19 +136,27 @@ def munkres_matrix(mat):
 
     # copy to avoid inplace changes to the original matrix
     processing_matrix = mat.copy()
-
     # step 1 - subtracting the minimum of each row from the rows
     sub_min_row(processing_matrix)
+    print("sub row", processing_matrix, sep='\n')
 
     # step 2 - subtracting the minimum of each col from the cols
     sub_min_col(processing_matrix)
+    print("sub col", processing_matrix, sep='\n')
 
     # step 3 - while coverage line of zeros is less then matrix size
     marked_row, marked_col = coverage_zero_lines(processing_matrix)
-    while sum(marked_row + marked_col) != mat.shape[0]:
+    print(f'row: {marked_row}\ncol: {marked_col}')
+    i = 1
+    while (sum(marked_row) + sum(marked_col)) != mat.shape[0]:
+
         # go to step 4 - shift zeros + step 3 again.
         shift_zeros(processing_matrix, marked_row, marked_col)
+        print("after shift", processing_matrix, sep='\n')
+
         marked_row, marked_col = coverage_zero_lines(processing_matrix)
+        print(f'row: {marked_row}\ncol: {marked_col}')
+
 
     # step 5 - make the final assignment of task to each worker
     return final_assignment(processing_matrix)
@@ -157,7 +165,13 @@ def munkres_matrix(mat):
 
 if __name__ == '__main__':
 
-    mat = np.random.randint(0,80, size=(15, 15))
+    # mat = np.random.randint(0,80, size=(15, 15))
+    mat = np.array([
+        [99999, 32, 72, 128],
+        [99999, 99999, 14.7, 22.6],
+        [21, 28, 72, 56],
+        [99999, 99999, 99999, 20]
+    ])
     pairs = munkres_matrix(mat)
     summer_time = 0
     for i, j in pairs:

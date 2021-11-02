@@ -5,7 +5,7 @@ def single_machine_unweighted(tasks):
        O( n log(n) )
 
     Args:
-        tasks: list of tasks that
+        tasks: dict of tasks that
     Returns:
         list of copatible tasks
     """
@@ -14,7 +14,7 @@ def single_machine_unweighted(tasks):
     max_compatible_tasks = [sorted_tasks_by_end[0]]
 
     for task in sorted_tasks_by_end[1:]:
-        if task.start > max_compatible_tasks[-1].end:
+        if task.start >= max_compatible_tasks[-1].end:
             max_compatible_tasks.append(task)
 
     return max_compatible_tasks
