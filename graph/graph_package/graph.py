@@ -12,7 +12,12 @@ class Graph:
     GRAY = 0
     BLACK = 1
 
-    def __init__(self, graph=None, container='list', size=10, directed=False) -> None:
+    def __init__(self,
+                 graph=None,
+                 vertexs=None,
+                 container='list',
+                 size=10,
+                 directed=False) -> None:
         """Graph Constructor
 
         Args:
@@ -25,15 +30,16 @@ class Graph:
             self.container = GraphMatrix(size=size, directed=directed)
         elif container == 'list':
             self.container = GraphList(directed=directed)
-        if graph is not None:
-            self.__construct_graph(graph)
+        if graph is not None and vertexs is None:
+            self.__construct_graph_with_weightless_vertex(graph)
+        if vertexs is not None and graph is not None:
+            self.__construct_graph_with_weight_vertex(graph, vertexs)
 
     def __str__(self) -> str:
         return self.container.__str__()
     
     def __getitem__(self, key):
         return self.neighbors(key)
-        # return self.container.graph[key]
 
     def add_vertex(self, key, value=0):
         """add Vertex to the graph
@@ -65,11 +71,17 @@ class Graph:
     def get_vertices(self):
         return self.container.get_vertices()
 
+    def get_vertex_by_name(self, name):
+        return self.container.vertices[name]
+
     def get_vertices_names(self):
         return self.container.get_vertices_names()
 
     def get_edges(self):
         return self.container.get_edges()
+
+    def get_distance(self, src, dst):
+        return self.container.graph[src][dst]
 
     def remove_vertex(self, key):
         """will remove the vertex (if exists)
@@ -176,9 +188,16 @@ class Graph:
 
         return dfs_helper(self.get_vertices()[0].key, None)
 
-    def __construct_graph(self, graph):
+    def __construct_graph_with_weightless_vertex(self, graph):
         for k in graph.keys():
             self.add_vertex(k)
+        for src, neighbors in graph.items():
+            for dst, w in neighbors.items():
+                self.add_edge(src, dst, w)
+
+    def __construct_graph_with_weight_vertex(self, graph, vertexs):
+        for k, v in vertexs.items():
+            self.add_vertex(k, v)
         for src, neighbors in graph.items():
             for dst, w in neighbors.items():
                 self.add_edge(src, dst, w)
