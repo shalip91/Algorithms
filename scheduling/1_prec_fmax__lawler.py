@@ -36,11 +36,12 @@ class PrecSchedule:
             for j in range(len(self.adj_mat[0])):
                 if self.adj_mat[i][j] != 0:
                     mat_graph[i][j] = self.adj_mat[i][j]
+        print(mat_graph)
 
         for src, neighbors in mat_graph.items():
             for dst in neighbors.keys():
                 graph.add_edge(src, dst)
-
+        print(graph)
         return graph
 
     def display_graph(self):
