@@ -17,7 +17,6 @@ class Order:
         items = ''
         for item in self.inventory:
             items += f'{item}, '
-
         return f'name:{self.client_name},  ' \
                f'distance:{self.distance},  ' \
                f'type:{self.type},  ' \

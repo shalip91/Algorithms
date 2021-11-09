@@ -3,8 +3,8 @@ from .order import Order
 from .item import Item
 
 class OrdersFileReader:
-    def __init__(self) -> None:
-        super().__init__()
+    """this class consist of static methods that parse the json orders files
+       and construct a list of Order object."""
 
     @staticmethod
     def __parse_invenroty(inventory):

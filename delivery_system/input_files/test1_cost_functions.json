@@ -1,0 +1,526 @@
+{
+    "V5SQU4XC": {
+        "name": "V5SQU4XC",
+        "distance": 8,
+        "type": "prime",
+        "ai": 0.195,
+        "inventory": {
+            "egg": {
+                "v": 16,
+                "w": 5
+            },
+            "key": {
+                "v": 45,
+                "w": 3
+            },
+            "meat": {
+                "v": 76,
+                "w": 2
+            },
+            "bag": {
+                "v": 6,
+                "w": 5
+            },
+            "shoe": {
+                "v": 39,
+                "w": 5
+            },
+            "ring": {
+                "v": 18,
+                "w": 7
+            }
+        }
+    },
+    "JNRRLYHE": {
+        "name": "JNRRLYHE",
+        "distance": 2,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "cheese": {
+                "v": 49,
+                "w": 1
+            },
+            "cup": {
+                "v": 22,
+                "w": 2
+            },
+            "meat": {
+                "v": 97,
+                "w": 7
+            },
+            "phone": {
+                "v": 78,
+                "w": 7
+            },
+            "guitar": {
+                "v": 40,
+                "w": 2
+            },
+            "ball": {
+                "v": 16,
+                "w": 5
+            }
+        }
+    },
+    "A8DJQQKK": {
+        "name": "A8DJQQKK",
+        "distance": 8,
+        "type": "prime",
+        "ai": 0.277,
+        "inventory": {
+            "hat": {
+                "v": 97,
+                "w": 4
+            },
+            "meat": {
+                "v": 85,
+                "w": 9
+            },
+            "banana": {
+                "v": 4,
+                "w": 4
+            },
+            "ring": {
+                "v": 59,
+                "w": 2
+            },
+            "guitar": {
+                "v": 65,
+                "w": 8
+            },
+            "bottle": {
+                "v": 83,
+                "w": 9
+            }
+        }
+    },
+    "JJPKGF4D": {
+        "name": "JJPKGF4D",
+        "distance": 1,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "chair": {
+                "v": 57,
+                "w": 6
+            },
+            "meat": {
+                "v": 18,
+                "w": 6
+            },
+            "bag": {
+                "v": 4,
+                "w": 5
+            },
+            "phone": {
+                "v": 13,
+                "w": 9
+            },
+            "bread": {
+                "v": 18,
+                "w": 8
+            },
+            "egg": {
+                "v": 90,
+                "w": 7
+            }
+        }
+    },
+    "G40IYYV4": {
+        "name": "G40IYYV4",
+        "distance": 7,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "cup": {
+                "v": 90,
+                "w": 6
+            },
+            "egg": {
+                "v": 22,
+                "w": 7
+            },
+            "apple": {
+                "v": 86,
+                "w": 5
+            },
+            "hat": {
+                "v": 32,
+                "w": 6
+            },
+            "shoe": {
+                "v": 62,
+                "w": 6
+            },
+            "bottle": {
+                "v": 50,
+                "w": 2
+            }
+        }
+    },
+    "8KS76A5J": {
+        "name": "8KS76A5J",
+        "distance": 3,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "bread": {
+                "v": 54,
+                "w": 7
+            },
+            "vase": {
+                "v": 66,
+                "w": 6
+            },
+            "ring": {
+                "v": 75,
+                "w": 7
+            },
+            "meat": {
+                "v": 98,
+                "w": 1
+            },
+            "bottle": {
+                "v": 83,
+                "w": 5
+            },
+            "bag": {
+                "v": 93,
+                "w": 3
+            },
+            "apple": {
+                "v": 60,
+                "w": 9
+            },
+            "sand": {
+                "v": 43,
+                "w": 5
+            }
+        }
+    },
+    "VOGI9EUX": {
+        "name": "VOGI9EUX",
+        "distance": 2,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "ball": {
+                "v": 58,
+                "w": 1
+            },
+            "key": {
+                "v": 97,
+                "w": 5
+            },
+            "clock": {
+                "v": 52,
+                "w": 7
+            },
+            "ring": {
+                "v": 32,
+                "w": 6
+            },
+            "pants": {
+                "v": 15,
+                "w": 4
+            },
+            "bag": {
+                "v": 6,
+                "w": 1
+            },
+            "sand": {
+                "v": 45,
+                "w": 6
+            },
+            "cheese": {
+                "v": 63,
+                "w": 6
+            }
+        }
+    },
+    "37WTT306": {
+        "name": "37WTT306",
+        "distance": 6,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "clock": {
+                "v": 10,
+                "w": 2
+            },
+            "phone": {
+                "v": 74,
+                "w": 9
+            },
+            "sand": {
+                "v": 34,
+                "w": 4
+            },
+            "bottle": {
+                "v": 53,
+                "w": 8
+            },
+            "bag": {
+                "v": 44,
+                "w": 8
+            },
+            "pants": {
+                "v": 73,
+                "w": 2
+            },
+            "hat": {
+                "v": 47,
+                "w": 1
+            }
+        }
+    },
+    "T3LVN1VB": {
+        "name": "T3LVN1VB",
+        "distance": 2,
+        "type": "prime",
+        "ai": 0.37,
+        "inventory": {
+            "cup": {
+                "v": 53,
+                "w": 2
+            },
+            "ball": {
+                "v": 29,
+                "w": 7
+            },
+            "sand": {
+                "v": 89,
+                "w": 7
+            },
+            "ring": {
+                "v": 43,
+                "w": 6
+            },
+            "vase": {
+                "v": 93,
+                "w": 4
+            },
+            "hat": {
+                "v": 92,
+                "w": 6
+            },
+            "cheese": {
+                "v": 39,
+                "w": 9
+            }
+        }
+    },
+    "55RKQR2B": {
+        "name": "55RKQR2B",
+        "distance": 9,
+        "type": "w-reg",
+        "ai": 1,
+        "inventory": {
+            "chair": {
+                "v": 14,
+                "w": 3
+            },
+            "shoe": {
+                "v": 4,
+                "w": 4
+            },
+            "banana": {
+                "v": 78,
+                "w": 8
+            },
+            "guitar": {
+                "v": 72,
+                "w": 4
+            },
+            "clock": {
+                "v": 65,
+                "w": 5
+            },
+            "ring": {
+                "v": 94,
+                "w": 1
+            },
+            "bottle": {
+                "v": 93,
+                "w": 7
+            }
+        }
+    },
+    "9BK6IE5Y": {
+        "name": "9BK6IE5Y",
+        "distance": 4,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "glasses": {
+                "v": 56,
+                "w": 9
+            },
+            "ball": {
+                "v": 45,
+                "w": 6
+            },
+            "guitar": {
+                "v": 58,
+                "w": 4
+            },
+            "banana": {
+                "v": 45,
+                "w": 4
+            },
+            "bottle": {
+                "v": 88,
+                "w": 7
+            },
+            "sand": {
+                "v": 85,
+                "w": 9
+            },
+            "bread": {
+                "v": 89,
+                "w": 1
+            }
+        }
+    },
+    "WNEAX6EA": {
+        "name": "WNEAX6EA",
+        "distance": 9,
+        "type": "w-reg",
+        "ai": 1,
+        "inventory": {
+            "chair": {
+                "v": 95,
+                "w": 4
+            },
+            "hat": {
+                "v": 90,
+                "w": 4
+            },
+            "clock": {
+                "v": 47,
+                "w": 5
+            },
+            "bag": {
+                "v": 5,
+                "w": 7
+            },
+            "ball": {
+                "v": 98,
+                "w": 5
+            },
+            "bottle": {
+                "v": 72,
+                "w": 6
+            }
+        }
+    },
+    "NQB7N7DO": {
+        "name": "NQB7N7DO",
+        "distance": 3,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "phone": {
+                "v": 2,
+                "w": 3
+            },
+            "clock": {
+                "v": 42,
+                "w": 2
+            },
+            "banana": {
+                "v": 60,
+                "w": 7
+            },
+            "bread": {
+                "v": 14,
+                "w": 9
+            },
+            "bottle": {
+                "v": 87,
+                "w": 3
+            },
+            "sand": {
+                "v": 49,
+                "w": 4
+            }
+        }
+    },
+    "EXHSVI4U": {
+        "name": "EXHSVI4U",
+        "distance": 3,
+        "type": "prime",
+        "ai": 0.143,
+        "inventory": {
+            "cup": {
+                "v": 21,
+                "w": 4
+            },
+            "sand": {
+                "v": 44,
+                "w": 8
+            },
+            "phone": {
+                "v": 64,
+                "w": 5
+            },
+            "guitar": {
+                "v": 93,
+                "w": 2
+            },
+            "meat": {
+                "v": 3,
+                "w": 6
+            },
+            "chair": {
+                "v": 48,
+                "w": 7
+            },
+            "hat": {
+                "v": 82,
+                "w": 3
+            }
+        }
+    },
+    "21PYOWRT": {
+        "name": "21PYOWRT",
+        "distance": 6,
+        "type": "v-reg",
+        "ai": 1,
+        "inventory": {
+            "bread": {
+                "v": 99,
+                "w": 5
+            },
+            "glasses": {
+                "v": 42,
+                "w": 5
+            },
+            "meat": {
+                "v": 73,
+                "w": 9
+            },
+            "ring": {
+                "v": 15,
+                "w": 5
+            },
+            "key": {
+                "v": 91,
+                "w": 2
+            },
+            "guitar": {
+                "v": 76,
+                "w": 1
+            },
+            "cup": {
+                "v": 19,
+                "w": 6
+            },
+            "shoe": {
+                "v": 40,
+                "w": 8
+            }
+        }
+    }
+}

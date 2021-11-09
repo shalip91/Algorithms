@@ -2,16 +2,20 @@ import math
 from copy import deepcopy
 
 from shipments.shipment import Shipment
-from client_packer import ClientPacker
-from algorithms.graph.graph_package.graph import Graph
-from collections import defaultdict
+from dependencies.graph_package.graph import Graph
 
 
 class ClientShipper:
+    """ this object is responsible for creating a schedule out of a given list of
+        of shipments and other parameters.
+        the process of doing so is by using the "lawler" algorithm that uses the
+        precedence graph as a prerequisite."""
+
     g = {
         "identity": lambda x: 1,
         "sum": lambda values: sum(values),
-        "max": lambda values: max(values)
+        "max": lambda values: max(values),
+        "len": lambda values: len(values)
     }
 
     def __init__(self, shipments, q_diff_factor=0.75, cost_function_type="sum") -> None:
@@ -43,35 +47,20 @@ class ClientShipper:
         """
         prime_shipments = list(filter(lambda s: s.type == 'prime', shipments))
 
-        # adding the dummy node so no prime will be prioritised over an other before
-        # caclulating the cost function
-        dummy_shipment = Shipment(client_name='dummy', distance=math.inf)
+        # add the dummy shipment
+        dummy_shipment = Shipment(client_name='dummy', distance=0, ai=0)
         graph.add_vertex(key=dummy_shipment.client_name, value=dummy_shipment)
-        prev_max_paid = dummy_shipment
-        prev_prev_max_paid = dummy_shipment
 
         while prime_shipments:
-            # pop the max paid shipment
-            curr_max_paid = max(prime_shipments, key=lambda s: sum(s.get_items_value()))
-            prime_shipments.remove(curr_max_paid)
+            # pop the max ai shipment and add it to the graph
+            curr_min_ai = min(prime_shipments, key=lambda s: s.ai)
+            prime_shipments.remove(curr_min_ai)
+            graph.add_vertex(key=curr_min_ai.client_name, value=curr_min_ai)
 
-            # add the first prime as child of the dummy
-            graph.add_vertex(key=curr_max_paid.client_name, value=curr_max_paid)
-            if len(graph.get_vertices()) == 2:
-                graph.add_edge(src=prev_max_paid.client_name, dst=curr_max_paid.client_name)
-                prev_max_paid = curr_max_paid
-
-            # add the last 2+ shipments
-            if len(graph.get_vertices()) > 2:
-                # add as child to the prev node
-                if sum(prev_max_paid.get_items_value()) * q_diff_factor > sum(curr_max_paid.get_items_value()):
-                    graph.add_edge(src=prev_max_paid.client_name, dst=curr_max_paid.client_name)
-                    prev_prev_max_paid = prev_max_paid
-                    prev_max_paid = curr_max_paid
-
-                # add as brother to the prev node
-                else:
-                    graph.add_edge(src=prev_prev_max_paid.client_name, dst=curr_max_paid.client_name)
+            # connect the new vertex to all his predecessors if ai < q*aj
+            for old_vertex in graph.get_vertices():
+                if old_vertex.weight.ai < (q_diff_factor * curr_min_ai.ai):
+                    graph.add_edge(src=old_vertex.weight.client_name, dst=curr_min_ai.client_name)
 
         return graph
 
@@ -121,21 +110,11 @@ class ClientShipper:
             # update given data
             if taken_idx != -1:
                 num_of_reg_remaining -= 1
+                taken_vertex.weight.cost_value = cost
                 schedule.append(taken_vertex)
                 vertices.remove(taken_vertex)
                 total_process_time -= taken_vertex.weight.distance
                 graph.remove_vertex(taken_vertex.key)
 
-        return schedule[::-1]
+        return [v.weight for v in schedule][::-1]
 
-if __name__ == '__main__':
-
-    packer = ClientPacker(filename='orders.json',
-                          ship_size=12,
-                          reg_w_max_size=10,
-                          reg_v_max_value=5)
-    for s in packer.calculate_shipments(): print(s)
-    shipper = ClientShipper(packer.shipments)
-    print(f"shipper.prec_graph: {shipper.prec_graph}")
-    for vertex in shipper.schedule:
-        print(f"name:{vertex.key}")
