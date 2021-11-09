@@ -71,7 +71,7 @@ class OrderFileGenerator:
 
 if __name__ == '__main__':
 
-    generator = OrderFileGenerator(order_num=12,
+    generator = OrderFileGenerator(order_num=10,
                                    max_inventory_size=5,
                                    max_distance=10,
                                    max_weight=10,
