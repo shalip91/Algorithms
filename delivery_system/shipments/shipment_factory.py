@@ -13,7 +13,7 @@ for each case of calculation, i am suggesting a variation of knapsack solver:
     the "W" as constant of the system therefore the the complexity reduces to O(n). 
     
 -   for the "v-reg" i am using the O(n^2V) Dynamic-Programming version that consider
-    the "V" as constant of the system therefore the the complexity reduces to O(n). 
+    the "V" as constant of the system therefore the the complexity reduces to O(n^2). 
     
 -   for the "prime" i am using the O(n^2V*) Dynamic-Programming approximation. 
 *******************************************************************************

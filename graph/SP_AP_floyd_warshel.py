@@ -6,8 +6,8 @@ from copy import deepcopy
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""
 DIJKSTRA
-this script will detect the shortest path 
-from (u --> v) in the graph
+this script will detect the shortest path between all pairs
+O(V^3)
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
 def init_mat(g):

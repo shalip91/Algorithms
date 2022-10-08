@@ -1,39 +1,58 @@
-import math
-from graph_package.flow_graph import FlowGraph
-import pandas as pd
-from collections import defaultdict
+def init_free_men(men_ranks):
+	free_men = []
+	for man in men_ranks.keys():
+		free_men.append(man)
+	return free_men
 
-# def better_choise(man, woman, mates, preferred_rankings_women):
-#     curr_man_rank = preferred_rankings_women[woman]
 
-def gale_shapely(preferred_rankings_men, preferred_rankings_women):
-    free_mens = list(preferred_rankings_men.keys())
-    mates = {}
+def begin_matching(m, free_men, potential_marriage, women_ranks, men_ranks):
+	for w in men_ranks[m]:
+		# bool for if woman is "taken" or not
+		taken_match = [couple for couple in potential_marriage if w in couple]
 
-    while free_mens:
-        for man in free_mens:
-            top_women =  preferred_rankings_men[man].pop(0)
-            if top_women not in mates or is_better_mate(man, top_women, preferred_rankings_women):
-                mates[top_women] = man
-                free_mens.remove(man)
-            else:
-                del preferred_rankings_men[man][prefered_woman]
+		if not taken_match:
+			potential_marriage.append([m, w])
+			free_men.remove(m)
+			break
+
+		elif taken_match:
+			cur_m = women_ranks[w].index(taken_match[0][0])
+			maybe_m = women_ranks[w].index(m)
+
+			if cur_m >= maybe_m:
+				free_men.remove(m)
+				free_men.append(taken_match[0][0])
+				taken_match[0][0] = m
+				break
+
+	return potential_marriage
+
+
+def gale_shapley_matching(men_ranks, women_ranks):
+	res = []
+	potential_marriage = []
+	free_men = init_free_men(men_ranks)
+	while free_men:
+		for m in free_men:
+			res = begin_matching(m, free_men=free_men, potential_marriage=potential_marriage, men_ranks=men_ranks, women_ranks=women_ranks)
+
+	return res
+
 
 if __name__ == '__main__':
-    preferred_rankings_men = {
-        'alex': ['alice', 'brenda', 'carrol', 'joana'],
-        'bob': ['carrol', 'joana', 'alice', 'brenda'],
-        'collin': ['joana', 'carrol', 'brenda', 'alice'],
-        'john': ['joana', 'alice', 'alice', 'brenda']
-    }
+	preferred_rankings_men_ex6 = {
+		'alex': ['alice', 'brenda', 'carrol', 'joana'],
+		'bob': ['carrol', 'joana', 'alice', 'brenda'],
+		'collin': ['joana', 'carrol', 'brenda', 'alice'],
+		'john': ['joana', 'alice', 'alice', 'brenda']
+	}
 
-    preferred_rankings_women = {
-        'alice': ['bob', 'alex', 'collin', 'john'],
-        'brenda': ['john', 'bob', 'alex', 'collin'],
-        'carrol': ['alex', 'bob', 'collin', 'john'],
-        'joana': ['alex', 'john', 'collin', 'bob']
-    }
+	preferred_rankings_women_ex6 = {
+		'alice': ['bob', 'alex', 'collin', 'john'],
+		'brenda': ['john', 'bob', 'alex', 'collin'],
+		'carrol': ['alex', 'bob', 'collin', 'john'],
+		'joana': ['alex', 'john', 'collin', 'bob']
+	}
 
-    print(preferred_rankings_men)
-    poper = preferred_rankings_men['alex'].pop(0)
-    print(preferred_rankings_men)
+	print(gale_shapley_matching(preferred_rankings_men_ex6, preferred_rankings_women_ex6))
+	print(gale_shapley_matching(preferred_rankings_women_ex6, preferred_rankings_men_ex6))

@@ -3,3 +3,4 @@
 test.ipynb
 test.py
 graph_test.py
+*.pyc

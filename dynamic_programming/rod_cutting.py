@@ -1,7 +1,7 @@
 import math
 import pickle
 from functools import wraps
-import numpy as np
+from collections import defaultdict
 
 
 def cache_dec(f):
@@ -16,41 +16,42 @@ def cache_dec(f):
     return wrapper
 
 
-@cache_dec
-def fib(n):
-    if n <= 2:
-        return 1
-    return fib(n-1) + fib(n-2)
-
-#
-# for i in range(50):
-#     print(fib(i))
-
-
-
-# @cache_dec
 def rod_cut(n, c):
     prices = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30,
               27, 32, 32, 40, 42, 41, 47, 52, 52, 63,
               68, 69, 69, 72, 75, 76, 76, 76, 78, 81, 81]
+    cache = [-math.inf for _ in range(n + 1)]
+    cache_rod_cuts = [[] for _ in range(n + 1)]
+
     def rod_cut_helper(n):
-        if n == 0:
+        if cache[n] >= 0:
+            return cache[n]
+
+        if n <= 0:
             return c
-        q = prices[n]
-        curr_slice = -1
-        for i in range(1, n+1):
-            if q < prices[i] + rod_cut_helper(n-i) - c:
-                q = prices[i] + rod_cut_helper(n-i) - c
-                curr_slice = i
-        if curr_slice != -1:
-            slices.append(curr_slice)
+        q = -math.inf
+        min_idx = -1
+        for i in range(1, n + 1):
+            if q < prices[i] + rod_cut_helper(n - i) - c:
+                q = prices[i] + rod_cut_helper(n - i) - c
+                min_idx = i
+        cache[n] = q
 
-        return q,
+        if min_idx == n:
+            cache_rod_cuts[n].append(min_idx)
+        else:
+            cache_rod_cuts[n] = cache_rod_cuts[min_idx] + cache_rod_cuts[n - min_idx]
 
-    return rod_cut_helper(n), slices
+        return q
 
-for i in range(1, 10):
+    rod_cut_helper(n)
+
+    res = defaultdict(int)
+    for cut in cache_rod_cuts[n]:
+        res[cut] += 1
+
+    return cache[n], res
+
+
+for i in range(1, 30):
     print(f'rod size: {i}\tresult: {rod_cut(i, 0)}')
-# price, slices = rod_cut(5, 0)
-# print(slices)
-# print(f'rod size: {4}\tresult: {price, slices}')

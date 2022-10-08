@@ -4,13 +4,13 @@ import numpy as np
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""
-this script will detect cycles in the graph
+this script will detect if graph is bipartite
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 def bipartite(g):
-    """this is an exploration DFS to search for cycles in graph
+    """this is an exploration DFS to search for bipartite graph
 
     Args:
         g: Graph
@@ -27,6 +27,7 @@ def bipartite(g):
                 if dfs_helper(dst.key, not color) == []:
                     return []
             elif visited[dst.key] != color:
+                # gray node with the same color as the src - not good
                 return []
 
 

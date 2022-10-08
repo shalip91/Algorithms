@@ -3,7 +3,7 @@ from single_machine_unweighted import single_machine_unweighted
 
 def multiple_machine_unweighted(tasks):
     """calculates the minimum number of machines needed for all tasks
-       O( n log(n) )
+       O( n^2 log(n) ) worst case if all the tasks intersect.
 
     Args:
         tasks: list of tasks that

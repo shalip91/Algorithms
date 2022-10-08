@@ -4,7 +4,7 @@ import math
 """""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""
 this script will detect the shortest path 
-from (u --> v) in the graph
+from (u --> v) in the graph on DAG using topologic sort
 """"""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""
 

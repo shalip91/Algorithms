@@ -62,6 +62,8 @@ def find_SSC(g):
 
 
 if __name__ == "__main__":
+
+    """this is from page 118 lecture 1"""
     test_graph = {'s': {'v': 1},
                   'v': {'w': 1},
                   'w': {'s': 1},
@@ -73,6 +75,17 @@ if __name__ == "__main__":
                   'r': {'u': 1, 'y': 1},
                   'u': {'y': 1}
                   }
+
+    # """this is from page 116 lecture 1"""
+    # test_graph = {'a': {'b': 1},
+    #               'b': {'c': 1, 'f': 1},
+    #               'c': {'d': 1, 'g': 1},
+    #               'd': {'c': 1, 'h': 1},
+    #               'e': {'a': 1, 'f': 1},
+    #               'f': {'g': 1},
+    #               'g': {'f': 1, 'h': 1},
+    #               'h': {'h': 1}
+    #               }
 
     # MUST be matrix. we dont support transpose on list
     g = Graph(directed=True, container='matrix')

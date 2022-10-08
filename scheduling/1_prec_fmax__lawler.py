@@ -4,6 +4,7 @@ import numpy as np
 from collections import defaultdict
 from copy import deepcopy
 from algorithms.graph.graph_package.graph import Graph
+from algorithms.graph.graph_package.graph_vertex import Vertex
 
 
 
@@ -81,13 +82,13 @@ class PrecSchedule:
         graph = deepcopy(self.graph)
         prc_times = self.pi_list.copy()
         p = sum(self.fi_list)
-        s = set(self.graph.get_vertices())
+        s = self.graph.get_vertices()
         sched_res = []
         n = len(s)
 
         for k in range(n, 0, -1):
             f_k = math.inf
-            taken_job = -1
+            taken_job = Vertex(key=-1, idx=0)
             taken_idx = 0
             # find job j in s such that out deg is 0 and fj(p) is minimal
             for idx, job in enumerate(s):
@@ -99,7 +100,7 @@ class PrecSchedule:
                         taken_idx = idx
 
             # update given data
-            if taken_job != -1:
+            if taken_job.key != -1:
                 s.remove(taken_job)
                 sched_res.append(taken_job)
                 p = p - prc_times[taken_idx]

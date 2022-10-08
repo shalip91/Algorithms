@@ -1,6 +1,6 @@
 import math
 from graph_package.flow_graph import FlowGraph
-from Flow_Ford_Fulkerson import *
+from flow_ford_fulkerson import *
 import pandas as pd
 from collections import defaultdict
 
