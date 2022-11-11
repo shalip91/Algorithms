@@ -39,6 +39,7 @@ class IScheduleMultiples:
 
         return max_compatible_tasks
 
+
     def comp_min_resources(self):
         """calculates the minimum number of machines needed
             O( n^3 )
