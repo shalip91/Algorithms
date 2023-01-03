@@ -59,7 +59,7 @@ class IScheduleMultiples:
         return resources
 
     def show_opt_schedule(self, tasks=None):
-        """plot the optimat solution or the tasks that are given"""
+        """plot the optimat solution or the tasks that are given """
         if tasks is None:
             tasks = self.comp_max_tasks()
         df = []
